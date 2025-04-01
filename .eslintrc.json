@@ -1,0 +1,26 @@
+{
+    "extends": [
+      "react-app",
+      "prettier",
+      "prettier/react"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "check-file/folder-naming-convention":[
+         "error",
+         {
+            "src/**/":"SNAKE_CASE"
+         }
+      ],
+      "check-file/filename-naming-convention":[
+         "error",
+         {
+            "*.{jsx,tsx}": "PASCAL_CASE",
+            "*.{js,ts}":"CAMEL_CASE"
+         }
+      ]
+    }
+  }
