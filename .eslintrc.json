@@ -1,26 +1,52 @@
 {
-    "extends": [
+   "env":{
+      "browser": true,
+      "es6": true
+   }, 
+   "extends": [
       "react-app",
       "prettier",
-      "prettier/react"
+      "prettier/react",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/recommended",
+      "plugin:@typescript-eslint/recommended"
     ],
+    "parserOptions": {
+      "ecmaFeatures": {
+         "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+   },
     "plugins": [
-      "prettier"
+      "prettier",
+      "react",
+      "@typescript-eslint",
+      "check-file"
     ],
     "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "prettier/prettier": "error",
-      "check-file/folder-naming-convention":[
-         "error",
-         {
-            "src/**/":"SNAKE_CASE"
-         }
-      ],
-      "check-file/filename-naming-convention":[
-         "error",
-         {
-            "*.{jsx,tsx}": "PASCAL_CASE",
-            "*.{js,ts}":"CAMEL_CASE"
-         }
-      ]
+      // Правило для проверки формата имён файлов
+      // Проверка формата файлов с расширениями .js, .ts, .jsx, .tsx
+      "check-file/filename-naming-convention": [ "error", { "**/* .{js,ts,jsx,tsx}": "KEBAB_CASE" } ],
+      // Правило для проверки формата имён папок
+      // Проверка формата имён папок в директории src
+      "check-file/folder-naming-convention": [ "error", { "src/**/": "KEBAB_CASE" } ],
+      "no-var": "error",
+      "indent": "error",
+      "no-multi-spaces": "error",
+      "space-in-parens": "error",
+      "no-multiple-empty-lines": "error",
+      "prefer-const": "error",
+      "no-use-before-define": "error",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
     }
   }
