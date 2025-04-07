@@ -4,6 +4,8 @@
 /node_modules
 Webpack/node_modules
 Vite/node_modules
+Nextjs/node_modules
+Remix/node_modules
 /.pnp
 .pnp.js
 

@@ -1,0 +1,75 @@
+{
+  "name": "settingupenvironment",
+  "version": "1.0.0",
+  "description": "Создание окружения для проекта React",
+  "homepage": "https://github.com/tauren81/BasicOfReact#readme",
+  "bugs": {
+    "url": "https://github.com/tauren81/BasicOfReact/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tauren81/BasicOfReact.git"
+  },
+  "license": "ISC",
+  "author": "PerevozchikovAS",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky",
+    "start": "node index.js",
+    "test": "node index.js",
+    "lint": "eslint src",
+    "lint:write": "eslint --debug src/ --fix",
+    "prettier": "prettier --write src/**/*.js",
+    "check-types": "tsc --project tsconfig.json --pretty --noEmit"
+  },
+  "dependencies": {
+    "eslint-plugin-check-file": "^2.8.0",
+    "eslint-plugin-nextjs": "^1.0.0",
+    "next": "^15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-error-boundary": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.8",
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-import-resolver-typescript": "^4.3.1",
+    "eslint-plugin-check-file": "^3.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import-x": "^4.10.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "express": "^5.1.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "msw": "^2.7.3",
+    "prettier": "3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run lint:write",
+      "git add"
+    ]
+  }
+}
