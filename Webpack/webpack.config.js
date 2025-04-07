@@ -1,10 +1,7 @@
-module.exports = [
-  {
-    output: {
-      filename: './dist/index.tsx',
-    },
-    name: 'first',
-    entry: './src/index.tsx',
-    mode: 'development',
-  },
-];
+import { resolve } from 'path';
+
+export const entry = './assets/js/index.js';
+export const output = {
+  filename: 'bundle.js',
+  path: resolve(__dirname, 'dist'),
+};

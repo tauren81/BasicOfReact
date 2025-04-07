@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 Webpack/node_modules
+Vite/node_modules
 /.pnp
 .pnp.js
 
