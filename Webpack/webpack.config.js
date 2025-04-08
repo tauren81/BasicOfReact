@@ -1,7 +1,32 @@
-import { resolve } from 'path';
+import path from 'path';
 
-export const entry = './assets/js/index.js';
-export const output = {
-  filename: 'bundle.js',
-  path: resolve(__dirname, 'dist'),
+const config = {
+  entry: './src/main.tsx',
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        exclude: [/node_modules/, /public/],
+        test: /\.(js|jsx|tsx)$/i,
+        loader: 'babel-loader',
+        //loader: 'ts-loader',
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    path: path.resolve('./public/'),
+  },
+  plugins: [],
+  devServer: {
+    static: {
+      directory: path.resolve('./public/'),
+    },
+    compress: true,
+    port: 9000,
+  },
 };
+
+export default config;
