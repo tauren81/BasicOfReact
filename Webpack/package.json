@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "PerevozchikovAS",
   "type": "module",
-  "main": "index.js",
+  "main": "src/main.tsx",
   "scripts": {
     "prepare": "husky",
     "start": "node index.js",
@@ -21,7 +21,9 @@
     "lint": "eslint src",
     "lint:write": "eslint --debug src/ --fix",
     "prettier": "prettier --write src/**/*.js",
-    "check-types": "tsc --project tsconfig.json --pretty --noEmit"
+    "check-types": "tsc --project tsconfig.json --pretty --noEmit",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack-dev-server --config webpack.config.js --mode development"
   },
   "dependencies": {
     "eslint-plugin-check-file": "^2.8.0",
@@ -30,6 +32,9 @@
     "react-error-boundary": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@eslint/compat": "^1.2.8",
     "@eslint/eslintrc": "^3.3.1",
     "@types/node": "^22.14.0",
@@ -37,6 +42,9 @@
     "@types/react-dom": "^19.1.1",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
+    "ajv": "^8.17.1",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.3.1",
@@ -50,11 +58,17 @@
     "express": "^5.1.0",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
+    "jsx": "^0.9.89",
     "lint-staged": "^15.5.0",
     "msw": "^2.7.3",
     "prettier": "3.5.3",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.29.0"
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   },
   "msw": {
     "workerDirectory": "public"

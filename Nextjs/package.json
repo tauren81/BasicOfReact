@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "eslint-plugin-check-file": "^2.8.0",
+    "eslint-plugin-nextjs": "^1.0.0",
+    "next": "^15.2.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-error-boundary": "^5.0.0"
