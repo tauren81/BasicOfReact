@@ -77,9 +77,9 @@
     }
   },
   "lint-staged": {
-    "*.(js|jsx)": [
-      "npm run lint:write",
-      "git add"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
     ]
   }
 }
