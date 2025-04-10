@@ -12,21 +12,24 @@
   },
   "license": "ISC",
   "author": "PerevozchikovAS",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "prepare": "husky",
-    "start": "node index.js",
     "test": "node index.js",
     "lint": "eslint src",
     "lint:write": "eslint --debug src/ --fix",
     "prettier": "prettier --write src/**/*.js",
-    "check-types": "tsc --project tsconfig.json --pretty --noEmit"
+    "check-types": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint_next": "next lint",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "eslint-plugin-check-file": "^2.8.0",
     "eslint-plugin-nextjs": "^1.0.0",
-    "next": "^15.2.4",
+    "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-error-boundary": "^5.0.0"
