@@ -5,7 +5,14 @@
 Webpack/node_modules
 Vite/node_modules
 Nextjs/node_modules
+Nextjs/.next
 Remix/node_modules
+ViteForComponent/node_modules
+NextjsPanda/node_modules
+NextjsPanda/.next
+NextjsPanda copy/node_modules
+NextjsPanda copy/.next
+
 /.pnp
 .pnp.js
 
