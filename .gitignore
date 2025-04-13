@@ -5,7 +5,8 @@
 Webpack/node_modules
 Vite/node_modules
 Nextjs/node_modules
-Remix/node_modules
+Remix/
+Nextjs/.next
 /.pnp
 .pnp.js
 
