@@ -10,6 +10,7 @@ function App() {
     <div>
       {/* стили Chakra-ui перекрывают стили tailwind поэтому тут закомментировано
       нужно показывать или этот компонент или MyModal*/}
+
       <h3>
         <CustomTab />
       </h3>
@@ -22,6 +23,7 @@ function App() {
       <h3>
         <CustomCalendar />
       </h3>
+
       <h3>
         <CustomModal />
       </h3>
