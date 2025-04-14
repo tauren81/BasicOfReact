@@ -1,6 +1,6 @@
-import { cva } from '../styled-system/css';
+import { cva } from '../../../../styled-system/css';
 
-const button = cva({
+const ButtonCVA = cva({
   base: {
     display: 'flex',
   },
@@ -20,4 +20,4 @@ const button = cva({
   },
 });
 
-export default button;
+export default ButtonCVA;

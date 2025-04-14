@@ -1,6 +1,7 @@
-import Button from '@components/button/Button';
-import Card from '@components/card/Card';
 import React from 'react';
+
+import Button from '@/app/components/button/Button';
+import Card from '@/app/components/card/Card';
 
 const Page = () => {
   return (

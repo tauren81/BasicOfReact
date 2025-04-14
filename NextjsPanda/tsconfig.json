@@ -10,7 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "preserve",
@@ -18,9 +18,7 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@app": ["./app/*"],
-      "@components": ["./app/component/*"]
+      "@/*": ["./src/*"]
     },
     "incremental": true,
     "plugins": [
@@ -29,6 +27,6 @@
       }
     ]
   },
-  "include": ["src", ".next/types/**/*.ts", "app/component/**/*.ts"],
+  "include": ["src", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
