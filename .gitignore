@@ -10,6 +10,7 @@ Remix/node_modules
 ViteForComponent/node_modules
 NextjsPanda/node_modules
 NextjsPanda/.next
+NextjsPanda/panda
 NextjsPanda copy/node_modules
 NextjsPanda copy/.next
 
@@ -32,3 +33,7 @@ NextjsPanda copy/.next
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+## Panda
+styled-system
+styled-system-studio
