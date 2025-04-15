@@ -1,6 +1,6 @@
 import { react } from 'react';
 import './Card.css';
-import Button from '@components/button/Button';
+import ButtonStyled from '@components/button/ButtonStyled';
 
 function Card() {
   return (
@@ -16,7 +16,10 @@ function Card() {
         </content>
       </div>
       <div>
-        <Button />
+        <ButtonStyled primary>iiiiiiiiiii</ButtonStyled>
+      </div>
+      <div>
+        <ButtonStyled outline>dddd</ButtonStyled>
       </div>
     </div>
   );

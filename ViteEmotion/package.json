@@ -33,6 +33,7 @@
     "tailwindcss-radix": "^4.0.2"
   },
   "devDependencies": {
+    "@emotion-extract/vite": "^1.13.3",
     "@eslint/eslintrc": "^3.0.2",
     "@types/node": "^20.12.7",
     "@types/react": "^18.3.1",

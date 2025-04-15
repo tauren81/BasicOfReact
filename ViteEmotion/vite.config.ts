@@ -5,10 +5,12 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
+import emotion from '@emotion-extract/vite';
+import '@emotion-extract/vite/env';
 
 export default defineConfig({
   base: './',
-  plugins: [react(), viteTsconfigPaths(), tailwindcss()],
+  plugins: [react(), viteTsconfigPaths(), tailwindcss(), emotion()],
   server: {
     port: 3000,
   },
