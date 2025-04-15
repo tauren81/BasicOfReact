@@ -8,12 +8,13 @@ const Button = styled.button`
   border-radius: 5px; /* Rounded corners */
   cursor: pointer;
 `;
-function ButtonStyled({ props }) {
-  return props ? (
-    <Button primary>tttttttt</Button>
+
+const ButtonStyled = (props) => {
+  return props.primary ? (
+    <Button primary>1111111</Button>
   ) : (
-    <Button outline>tttttttt</Button>
+    <Button outline>2222222</Button>
   );
-}
+};
 
 export default ButtonStyled;

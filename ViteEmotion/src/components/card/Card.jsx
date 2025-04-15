@@ -2,7 +2,7 @@ import { react } from 'react';
 import './Card.css';
 import ButtonStyled from '@components/button/ButtonStyled';
 
-function Card() {
+const Card = () => {
   return (
     <div>
       <div>
@@ -16,13 +16,13 @@ function Card() {
         </content>
       </div>
       <div>
-        <ButtonStyled primary>iiiiiiiiiii</ButtonStyled>
+        <ButtonStyled primary>3333333</ButtonStyled>
       </div>
       <div>
-        <ButtonStyled outline>dddd</ButtonStyled>
+        <ButtonStyled outline>4444444</ButtonStyled>
       </div>
     </div>
   );
-}
+};
 
 export default Card;
