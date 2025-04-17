@@ -14,6 +14,7 @@ NextjsPanda/.next
 NextjsPanda copy/node_modules
 NextjsPanda copy/.next
 ViteEmotion/node_modules
+ViteAxiosZod/node_modules
 
 /.pnp
 .pnp.js
