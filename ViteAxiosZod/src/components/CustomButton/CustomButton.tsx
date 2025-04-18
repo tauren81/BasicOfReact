@@ -3,10 +3,26 @@ import { Button } from 'antd';
 import getPosts from './GetPosts';
 
 const CustomButton = () => {
+  const [getResult, setGetResult] = useState<any>(null);
+
   return (
-    <Button type="primary" onClick={() => getPosts()}>
-      Primary Button
-    </Button>
+    <div>
+      <Button
+        type="primary"
+        onClick={async () => {
+          setGetResult(await getPosts());
+        }}
+      >
+        Primary Button
+      </Button>
+      <div>
+        <ul>
+          {getResult?.map((record: any, i: any) => (
+            <li key={i}>{record.title}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 

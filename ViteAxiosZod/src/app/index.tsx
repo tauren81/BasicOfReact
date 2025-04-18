@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 
 import apiClient from '@/types/api-client';
 import { AxiosError } from 'axios';
+import { fetchUser } from '@/types/api/fetchPost';
 
 function App() {
   const [getId, setGetId] = useState('');
@@ -18,6 +19,7 @@ function App() {
   const { isLoading: isLoadingTutorials, refetch: getAllTutorials } = useQuery(
     'query-tutorials',
     async () => {
+      fetchUser;
       return await apiClient.get('/tutorials');
     },
     {
@@ -52,19 +54,23 @@ function App() {
   const { isLoading: isLoadingTutorial, refetch: getTutorialById } = useQuery(
     'query-tutorial-by-id',
     async () => {
-      return await apiClient.get(`/tutorials/${getId}`);
+      return await fetchUser(`${getId}`);
+      //return await apiClient.get(`/tutorials/${getId}`);
     },
     {
       enabled: false,
       retry: 1,
       onSuccess: (res) => {
         const result = {
-          status: res.status + '-' + res.statusText,
-          headers: res.headers,
-          data: res.data,
+          status: 200,
+          headers: 'application/json',
+          data: res,
         };
 
-        setGetResult(fortmatResponse(result));
+        //let ress = `<div>${result.data.title}</div><div>${result.data.title}</div>`;
+
+        let ress = fortmatResponse(result);
+        setGetResult(ress);
       },
       onError: (err: any) => {
         setGetResult(fortmatResponse(err.response?.data || err));
@@ -86,6 +92,7 @@ function App() {
     }
   }
 
+  /*
   const { isLoading: isSearchingTutorial, refetch: findTutorialsByTitle } =
     useQuery(
       'query-tutorials-by-title', // ["query-tutorials-by-title", getTitle],
@@ -123,6 +130,7 @@ function App() {
       }
     }
   }
+    */
 
   const clearGetOutput = () => {
     setGetResult('');
@@ -151,6 +159,7 @@ function App() {
               </button>
             </div>
 
+            {/*
             <input
               type="text"
               value={getTitle}
@@ -166,7 +175,7 @@ function App() {
                 Find By Title
               </button>
             </div>
-
+*/}
             <button
               className="btn btn-sm btn-warning ml-2"
               onClick={clearGetOutput}
@@ -174,6 +183,10 @@ function App() {
               Clear
             </button>
           </div>
+
+          <h3>
+            <CustomButton />
+          </h3>
 
           {getResult && (
             <div className="alert alert-secondary mt-2" role="alert">
