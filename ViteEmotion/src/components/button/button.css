@@ -1,0 +1,19 @@
+.outline-button {
+  font-size: 1.5rem;
+  color: #3498db; /* Text color */
+  background-color: transparent; /* Transparent background */
+  padding: 10px 30px;
+  border: 2px solid #3498db; /* Blue outline */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.primary-button {
+  font-size: 1.5rem;
+  color: white; /* Text color */
+  background-color: #3498db; /* Transparent background */
+  padding: 10px 30px;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+}
