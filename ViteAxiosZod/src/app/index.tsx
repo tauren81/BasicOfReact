@@ -4,57 +4,22 @@ import { useQuery } from 'react-query';
 
 import apiClient from '@/types/api-client';
 import { AxiosError } from 'axios';
-import { fetchUser } from '@/types/api/fetchPost';
+import { fetchPost } from '@/types/api/fetchPost';
+import { fetchPostComments } from '@/types/api/fetchPostComment';
 
 function App() {
   const [getId, setGetId] = useState('');
-  const [getTitle, setGetTitle] = useState('');
-
-  const [getResult, setGetResult] = useState('');
+  const [getResult, setGetResult] = useState<any>(null);
+  const [getComments, setGetComments] = useState<any>(null);
 
   const fortmatResponse = (res: any) => {
     return JSON.stringify(res, null, 2);
   };
 
-  const { isLoading: isLoadingTutorials, refetch: getAllTutorials } = useQuery(
-    'query-tutorials',
-    async () => {
-      fetchUser;
-      return await apiClient.get('/tutorials');
-    },
-    {
-      enabled: false,
-      onSuccess: (res) => {
-        const result = {
-          status: res.status + '-' + res.statusText,
-          headers: res.headers,
-          data: res.data,
-        };
-
-        setGetResult(fortmatResponse(result));
-      },
-      onError: (err: any) => {
-        setGetResult(fortmatResponse(err.response?.data || err));
-      },
-    },
-  );
-
-  useEffect(() => {
-    if (isLoadingTutorials) setGetResult('loading...');
-  }, [isLoadingTutorials]);
-
-  function getAllData() {
-    try {
-      getAllTutorials();
-    } catch (err) {
-      setGetResult(fortmatResponse(err));
-    }
-  }
-
   const { isLoading: isLoadingTutorial, refetch: getTutorialById } = useQuery(
     'query-tutorial-by-id',
     async () => {
-      return await fetchUser(`${getId}`);
+      return await fetchPost(`${getId}`);
       //return await apiClient.get(`/tutorials/${getId}`);
     },
     {
@@ -67,10 +32,65 @@ function App() {
           data: res,
         };
 
-        //let ress = `<div>${result.data.title}</div><div>${result.data.title}</div>`;
+        let ress = (
+          <div className="card">
+            <div className="card-header">{result?.data.title}</div>
+            <div className="card-body">
+              <div>{result?.data.body}</div>
+              <button
+                className="btn btn-sm btn-primary"
+                onClick={async () => {
+                  //понравился вариант явного приведения типов через Promise<xxxDTO>,
+                  // результат явно содержит типизированный эелемент, который легче встраивать в разметку
+                  let xxx = await fetchPostComments(`${getId}`);
+                  setGetComments(xxx);
 
-        let ress = fortmatResponse(result);
+                  <div>
+                    {xxx?.map((record: any, i: any) => (
+                      <div className="card" key={record.id}>
+                        <div className="card-header">
+                          {record.name} ({record.email})
+                        </div>
+                        <div className="card-body">
+                          <div>{record.body}</div>
+                          <button className="btn btn-sm btn-primary">
+                            Get comments
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>;
+                }}
+              >
+                Get comments
+              </button>
+              <div>
+                {getComments?.map((record: any, i: any) => (
+                  <div className="card" key={record.id}>
+                    <div className="card-header">
+                      {record.name} ({record.email})
+                    </div>
+                    <div className="card-body">
+                      <div>{record.body}</div>
+                      <button className="btn btn-sm btn-primary">
+                        Get comments
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
         setGetResult(ress);
+
+        <button
+          className="btn btn-sm btn-warning ml-2"
+          onClick={clearGetOutput}
+        >
+          Clear
+        </button>;
       },
       onError: (err: any) => {
         setGetResult(fortmatResponse(err.response?.data || err));
@@ -139,13 +159,9 @@ function App() {
   return (
     <div id="app" className="container">
       <div className="card">
-        <div className="card-header">React Query Axios GET - BezKoder.com</div>
+        <div className="card-header">Загрузка поста, по ид</div>
         <div className="card-body">
           <div className="input-group input-group-sm">
-            <button className="btn btn-sm btn-primary" onClick={getAllData}>
-              Get All
-            </button>
-
             <input
               type="text"
               value={getId}

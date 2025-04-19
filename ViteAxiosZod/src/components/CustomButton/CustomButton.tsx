@@ -16,11 +16,14 @@ const CustomButton = () => {
         Primary Button
       </Button>
       <div>
-        <ul>
-          {getResult?.map((record: any, i: any) => (
-            <li key={i}>{record.title}</li>
-          ))}
-        </ul>
+        {getResult?.map((record: any, i: any) => (
+          <div className="card">
+            <div className="card-header">{record.title}</div>
+            <div className="card-body">
+              <div>{record.body}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
