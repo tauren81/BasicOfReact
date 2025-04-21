@@ -13,17 +13,21 @@ const CustomButton = () => {
           setGetResult(await getPosts());
         }}
       >
-        Primary Button
+        Загрузка всех постов
       </Button>
       <div>
-        {getResult?.map((record: any, i: any) => (
-          <div className="card">
-            <div className="card-header">{record.title}</div>
-            <div className="card-body">
-              <div>{record.body}</div>
-            </div>
-          </div>
-        ))}
+        <ul>
+          {getResult?.map((record: any, i: any) => (
+            <li>
+              <div className="card">
+                <div className="card-header">{record.title}</div>
+                <div className="card-body">
+                  <div>{record.body}</div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
