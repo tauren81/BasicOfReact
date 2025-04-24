@@ -5,8 +5,18 @@
 Webpack/node_modules
 Vite/node_modules
 Nextjs/node_modules
-Remix/
 Nextjs/.next
+Remix/node_modules
+ViteForComponent/node_modules
+NextjsPanda/node_modules
+NextjsPanda/.next
+NextjsPanda/.next
+NextjsPanda copy/node_modules
+NextjsPanda copy/.next
+ViteEmotion/node_modules
+ViteAxiosZod/node_modules
+ViteOnlineStore/node_modules
+
 /.pnp
 .pnp.js
 
@@ -26,3 +36,7 @@ Nextjs/.next
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+## Panda
+styled-system
+styled-system-studio
