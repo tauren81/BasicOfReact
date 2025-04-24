@@ -1,18 +1,20 @@
-import { useContext } from 'react';
-import CartIcon from './CartIcon';
-import ShowAlert from './ShowAlert';
-import CartList from './CartList';
+//import { useContext } from 'react';
+//import CartIcon from './CartIcon';
+//import ShowAlert from './ShowAlert';
+//import CartList from './CartList';
 import ShopList from './ShopList';
-import { CartContext } from '../stores/CartContext';
+//import { CartContext } from '../stores/CartContext';
+import Cart from '@components/Cart';
 
 export default function Content() {
-  const cart = useContext(CartContext);
+  //const cart = useContext(CartContext);
   return (
     <main className="container">
-      <CartIcon />
-      {cart.showAlert && <ShowAlert />}
+      {/*<CartIcon />*/}
+      {/*{cart.showAlert && <ShowAlert />}*/}
       <ShopList />
-      {cart.showItems && <CartList />}
+      <Cart />
+      {/*{cart.showItems && <CartList />}*/}
     </main>
   );
 }

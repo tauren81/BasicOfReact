@@ -8,10 +8,14 @@ import { AuthContext } from '../stores/AuthContext';
 import { useAuth } from '../hooks/useAuth';
 import Login from '@/pages/login';
 import LogoutButton from '@/pages/LogoutButton';
-import { CartContextProvider } from '../stores/CartContext';
+//import { CartContextProvider } from '../stores/CartContext';
 import { ThemeContext } from '../stores/ThemeContext';
+import { ReduxStore } from '../stores/ReduxStore';
 
 import { atom, useAtom, Provider } from 'jotai';
+
+import { Provider as Providerx } from 'react-redux';
+
 const theme = atom('light');
 
 //const ThemeContext = createContext();
@@ -25,13 +29,15 @@ function App() {
       <Provider store={ThemeContext}>
         {/*<ThemeContext.Provider value={{ theme, setTheme }}>*/}
         <AuthContext.Provider value={{ user, setUser }}>
-          <CartContextProvider>
-            <Login />
-            <LogoutButton />
+          {/*<CartContextProvider>*/}
+          <Login />
+          <LogoutButton />
+          <Providerx store={ReduxStore}>
             <Header />
             <Content />
             <Footer />
-          </CartContextProvider>
+          </Providerx>
+          {/*</CartContextProvider>*/}
         </AuthContext.Provider>
         {/*</ThemeContext.Provider>*/}
       </Provider>
