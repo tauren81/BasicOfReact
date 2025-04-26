@@ -15,7 +15,10 @@ export const orderMachine = createMachine({
       on: {
         ADD_TO_CART: {
           actions: assign({
-            cart: (context, event) => [...context.cart, event.item],
+            cart: (
+              context,
+              event, //[...context.cart, event.item],
+            ) => [context.event.item],
           }),
         },
         REMOVE_FROM_CART: {
@@ -31,20 +34,20 @@ export const orderMachine = createMachine({
       on: {
         FILL_SHIPPING: {
           actions: assign({
-            shippingAddress: (_, event) => event.shippingAddress,
+            shippingAddress: (context) => context.event.shippingAddress,
           }),
         },
         SELECT_PAYMENT: {
           actions: assign({
-            paymentMethod: (_, event) => event.paymentMethod,
+            paymentMethod: (context) => context.event.paymentMethod,
           }),
         },
         PLACE_ORDER: {
           target: 'placingOrder',
           guard: (context) =>
-            context.shippingAddress &&
-            context.paymentMethod &&
-            context.cart.length > 0,
+            context.event.shippingAddress &&
+            context.event.paymentMethod &&
+            context.event.cart.length > 0,
         },
         CANCEL: 'browsing',
       },
@@ -55,13 +58,13 @@ export const orderMachine = createMachine({
         onDone: {
           target: 'orderPlaced',
           actions: assign({
-            orderDetails: (_, event) => event.data,
+            orderDetails: (context) => context.event.data,
           }),
         },
         onError: {
           target: 'checkout',
           actions: assign({
-            error: (_, event) => event.data,
+            error: (context) => context.event.data,
           }),
         },
       },

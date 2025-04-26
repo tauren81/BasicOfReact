@@ -98,7 +98,7 @@ const OrderSystem = () => {
           </ul>
 
           {cart.length > 0 && (
-            <button onClick={() => send('PROCEED_TO_CHECKOUT')}>
+            <button onClick={() => send({ type: 'PROCEED_TO_CHECKOUT' })}>
               Proceed to Checkout
             </button>
           )}
@@ -131,13 +131,13 @@ const OrderSystem = () => {
           </button>
 
           <button
-            onClick={() => send('PLACE_ORDER')}
+            onClick={() => send({ type: 'PLACE_ORDER' })}
             disabled={!state.can('PLACE_ORDER')}
           >
             Place Order
           </button>
 
-          <button onClick={() => send('CANCEL')}>Cancel</button>
+          <button onClick={() => send({ type: 'CANCEL' })}>Cancel</button>
         </div>
       )}
 
