@@ -7,6 +7,8 @@ import {
   clearCart,
 } from '../stores/cartSlice';
 
+import { OrderSystem } from './OrderSystem';
+
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -56,6 +58,8 @@ const Cart = () => {
           </div>
         </>
       )}
+
+      {cart?.totalQuantity > 0 ? <OrderSystem carts={cart?.items} /> : <></>}
     </div>
   );
 };

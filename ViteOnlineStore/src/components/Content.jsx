@@ -5,7 +5,7 @@
 import ShopList from './ShopList';
 //import { CartContext } from '../stores/CartContext';
 import Cart from '@components/Cart';
-import OrderSystem from './OrderSystem';
+//import { OrderSystem } from './OrderSystem';
 
 export default function Content() {
   //const cart = useContext(CartContext);
@@ -16,7 +16,6 @@ export default function Content() {
       <ShopList />
       <Cart />
       {/*{cart.showItems && <CartList />}*/}
-      <OrderSystem />
     </main>
   );
 }

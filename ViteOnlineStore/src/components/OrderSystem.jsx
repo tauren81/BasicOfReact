@@ -1,7 +1,10 @@
 import React from 'react';
 import { useMachine } from '@xstate/react';
-import { orderMachine } from '../stores/orderMachine';
+import orderMachine from '../stores/orderMachine';
+import Cart from './Cart';
+import { useSelector } from 'react-redux';
 
+/*
 // Сервис для отправки заказа (может быть заменен на реальный API вызов)
 const submitOrderService = (context) => {
   return new Promise((resolve, reject) => {
@@ -19,15 +22,31 @@ const submitOrderService = (context) => {
     }, 1000);
   });
 };
+*/
 
-const OrderSystem = () => {
-  const [state, send] = useMachine(orderMachine, {
-    services: {
-      submitOrder: submitOrderService,
-    },
-  });
+/*
+const executeAction = async (context, event) => {
+  //const { dataToSubmit } = context;
+  return {
+    orderId: `ORD-${Math.floor(Math.random() * 1000000)}`,
+    total: context.cart.reduce((sum, item) => sum + item.price, 0),
+    items: context.cart,
+  };
+};
+*/
+
+export const OrderSystem = ({ carts }) => {
+  const [state, send] = useMachine(orderMachine);
+
+  const cartss = carts; //Cart?.Scopes[0].useSelector((state) => state.cart);
+
+  state.context.cart = cartss.map((item) => [
+    { id: item.id, name: item.name, price: item.price },
+  ]);
 
   const { cart, orderDetails, error } = state.context;
+
+  //cart = Cart.cart;
 
   // В реальном приложении эти данные будут приходить из формы
   const mockShippingAddress = {
@@ -42,9 +61,15 @@ const OrderSystem = () => {
     return (
       <div className="order-confirmation">
         <h2>Order Confirmed!</h2>
-        <p>Order ID: {orderDetails.orderId}</p>
-        <p>Total: ${orderDetails.total.toFixed(2)}</p>
-        <button onClick={() => send('CONTINUE_SHOPPING')}>
+        <p>Order ID: {orderDetails?.orderId}</p>
+        <p>Total: ${orderDetails?.total?.toFixed(2)}</p>
+        <button
+          onClick={() =>
+            send({
+              type: 'CONTINUE_SHOPPING',
+            })
+          }
+        >
           Continue Shopping
         </button>
       </div>
@@ -56,6 +81,7 @@ const OrderSystem = () => {
       {state.matches('browsing') && (
         <div className="browsing">
           <h2>Products</h2>
+          {/*
           <button
             onClick={() =>
               send({
@@ -96,6 +122,7 @@ const OrderSystem = () => {
               </li>
             ))}
           </ul>
+          */}
 
           {cart.length > 0 && (
             <button onClick={() => send({ type: 'PROCEED_TO_CHECKOUT' })}>
@@ -132,7 +159,7 @@ const OrderSystem = () => {
 
           <button
             onClick={() => send({ type: 'PLACE_ORDER' })}
-            disabled={!state.can('PLACE_ORDER')}
+            disabled={!state.can({ type: 'PLACE_ORDER' })}
           >
             Place Order
           </button>
@@ -151,5 +178,3 @@ const OrderSystem = () => {
     </div>
   );
 };
-
-export default OrderSystem;
