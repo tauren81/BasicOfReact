@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "SuperJet",
+    "description": "Супер-пуппер",
+    "images": {
+      "icon": "/items/images/98cc822a1f8511f086920e387b417f5a.webp"
+    },
+    "price": 1000,
+    "category": "Многоместный"
+  },
+  {
+    "id": 2,
+    "name": "FarJet",
+    "description": "Далеко и надолго",
+    "images": {
+      "icon": "/items/images/679f483b1f8511f0aa89d27cdd667232.webp"
+    },
+    "price": 2000,
+    "category": "Многоместный"
+  },
+  {
+    "id": 3,
+    "name": "ComfortJet",
+    "description": "Лети - наслаждайся",
+    "images": {
+      "icon": "/items/images/addb36671f8511f0a524cac2f6333fb1.webp"
+    },
+    "price": 3000,
+    "category": "Многоместный"
+  },
+  {
+    "id": 4,
+    "name": "ChartJet",
+    "description": "И пусть весь мир подождет",
+    "images": {
+      "icon": "/items/images/d1e3201a1f8511f09a93ce6525ebdb7d.webp"
+    },
+    "price": 4000,
+    "category": "Одноместный"
+  },
+  {
+    "id": 5,
+    "name": "WarJet",
+    "description": "Дай им прикурить",
+    "images": {
+      "icon": "/items/images/ec4fb77e1f8511f09566de0d6687dfb1.webp"
+    },
+    "price": 5000,
+    "category": "Одноместный"
+  }
+]
