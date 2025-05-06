@@ -1,5 +1,5 @@
 export default {
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-fixed-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
@@ -23,4 +23,7 @@ export default {
     },
   },
   coverageReporters: ['html', 'text'],
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  },
 };
