@@ -7,6 +7,7 @@ export default {
   testPathIgnorePatterns: ['/node_modules/', '/cypress/'],
   collectCoverageFrom: [
     'src/components/*.js',
+    'src/mocks/*.js',
     'src/components/*.ts',
     'src/components/*.jsx',
     'src/components/*.tsx',

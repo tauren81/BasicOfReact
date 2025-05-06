@@ -33,6 +33,8 @@ describe('TaskList Component', () => {
     //expect(screen.getByText('Loading...')).toBeInTheDocument();
 
     // Wait for tasks to load and check they are displayed
+    await expect(screen.getByText('Learn React')).toBeInTheDocument();
+    await expect(screen.getByText('Write tests')).toBeInTheDocument();
     await expect(screen.getByText('Mocked todo')).toBeInTheDocument();
 
     // Verify loading state is gone
