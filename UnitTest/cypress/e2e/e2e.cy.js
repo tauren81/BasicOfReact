@@ -1,27 +1,27 @@
 describe('E2E Tests', () => {
-  it('Добавление задачи', () => {
+  it('Add Task', () => {
     cy.visit('http://localhost:5173/');
-    cy.get('[data-testid="todo-input"]').type('Добавление задачи');
+    cy.get('[data-testid="todo-input"]').type('Add Task');
     cy.get('[data-testid="add-button"]').click();
-    cy.get('span').should('contain.text', 'Добавление задачи');
+    cy.get('span').should('contain.text', 'Add Task');
   });
 
-  it('Удаление задачи', () => {
+  it('Delete task', () => {
     cy.visit('http://localhost:5173/');
-    cy.get('[data-testid="todo-input"]').type('Удаление задачи');
+    cy.get('[data-testid="todo-input"]').type('Delete task');
     cy.get('[data-testid="add-button"]').click();
     cy.get('[data-testid="todo-input"]').should('have.attr', 'value', '');
   });
 
-  it('Добавление задач и фильтрация', () => {
+  it('Filter', () => {
     cy.visit('http://localhost:5173/');
 
     // Добавление активной задачи
-    cy.get('[data-testid="todo-input"]').type('Активная задача 1');
+    cy.get('[data-testid="todo-input"]').type('Todo task x');
     cy.get('[data-testid="add-button"]').click();
 
     // Добавление выполненной задачи
-    cy.get('[data-testid="todo-input"]').type('Выполненная задача 1');
+    cy.get('[data-testid="todo-input"]').type('Done task x');
     cy.get('[data-testid="add-button"]').click();
 
     // Ожидание появления последнего элемента перед кликом
@@ -29,37 +29,34 @@ describe('E2E Tests', () => {
     cy.get('[data-testid^="toggle-"]').last().click();
 
     // Добавление ещё одной активной задачи
-    cy.get('[data-testid="todo-input"]').type('Активная задача 2');
+    cy.get('[data-testid="todo-input"]').type('Todo task y');
     cy.get('[data-testid="add-button"]').click();
 
     // Проверка фильтра "Только активные"
     cy.get('[data-testid="filter-active"]').click();
     cy.get('[data-testid="todo-list"]', { timeout: 10000 }).should(
       'contain.text',
-      'Активная задача 1',
+      'Todo task x',
     );
-    cy.get('[data-testid="todo-list"]').should(
-      'contain.text',
-      'Активная задача 2',
-    );
+    cy.get('[data-testid="todo-list"]').should('contain.text', 'Todo task y');
     cy.get('[data-testid="todo-list"]').should(
       'not.contain.text',
-      'Выполненная задача 1',
+      'Done task x',
     );
 
     // Проверка фильтра "Только выполненные"
     cy.get('[data-testid="filter-completed"]').click();
     cy.get('[data-testid="todo-list"]', { timeout: 10000 }).should(
       'contain.text',
-      'Выполненная задача 1',
+      'Done task x',
     );
     cy.get('[data-testid="todo-list"]').should(
       'not.contain.text',
-      'Активная задача 1',
+      'Todo task x',
     );
     cy.get('[data-testid="todo-list"]').should(
       'not.contain.text',
-      'Активная задача 2',
+      'Todo task y',
     );
   });
 });
