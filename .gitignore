@@ -16,6 +16,10 @@ NextjsPanda copy/.next
 ViteEmotion/node_modules
 ViteAxiosZod/node_modules
 ViteOnlineStore/node_modules
+UnitTest/node_modules
+UnitTest/coverage
+YandexOuth
+Optimization/node_modules
 
 /.pnp
 .pnp.js
