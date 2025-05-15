@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge" />-->
+    /
+    <!--<meta name="theme-color" content="#000000" />-->
+    <meta name="description" content="React Application" />
+    <!--<script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></script>
+    <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js"></script>
+  -->
+    <!--
+    <meta
+      http-equiv="Content-Security-Policy"
+      X-Frame-Options="SAMEORIGIN"
+      content="default-src 'self' https: ; object-src 'none'"
+    />
+-->
+    <title>React</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+<!--
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      html,
+      body {
+        background: #eee;
+      }
+    </style>
+    <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></script>
+    <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js"></script>
+  </head>
+
+  <body>
+    <script>
+      window.onload = function () {
+        window.YaAuthSuggest.init(
+          {
+            client_id: 'd9ff50ec155f4aed98859bcf27710588',
+            response_type: 'token',
+            redirect_uri: 'http://localhost:3000/auth',
+          },
+          'http://localhost:3000',
+          {
+            view: 'button',
+            parentId: 'container',
+            buttonView: 'main',
+            buttonTheme: 'light',
+            buttonSize: 'm',
+            buttonBorderRadius: 0,
+          },
+        )
+          .then(function (result) {
+            return result.handler();
+          })
+          .then(function (data) {
+            console.log('Сообщение с токеном: ', data);
+            document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
+          })
+          .catch(function (error) {
+            console.log('Что-то пошло не так: ', error);
+            document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
+          });
+      };
+    </script>
+    <script>
+      window.onload = function () {
+        window.YaSendSuggestToken('http://localhost:3000', {
+          kek: true,
+        });
+      };
+    </script>
+  </body>
+</html>
+-->
